@@ -73,7 +73,7 @@ extra_javascript:
 
 #Copyright
 copyright: >
-  <a href="https://www.openeverest.io/">OpenEverest</a> © 2026 — <a href="#__consent">Cookie Consent</a>
+  <a href="https://www.openeverest.io/">The OpenEverest Contributors</a> © 2026 — <a href="#__consent">Cookie Consent</a>
 
 #Extensions
 markdown_extensions:
@@ -130,10 +130,10 @@ plugins:
   # https://github.com/orzih/mkdocs-with-pdf
   with-pdf:
     output_path: "pdf/Everest-0.1.0.pdf"
-    cover_title: "Everest Documentation"
+    cover_title: "OpenEverest Documentation"
     cover_subtitle: version (Date, Year)
 
-    author: "Everest Team"
+    author: "The OpenEverest Contributors"
     cover_logo: docs/images/open-everest-logo.png
     enabled_if_env: ENABLE_PDF_EXPORT
   # Check links - but extends build time significantly
@@ -148,7 +148,6 @@ plugins:
 extra:
   edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
   updated_text: '<i class="uil uil-refresh"></i> Page updated'
-# Common navigation for percona.com, render.com and PDF
 
 nav:
   - Welcome to OpenEverest: index.md
