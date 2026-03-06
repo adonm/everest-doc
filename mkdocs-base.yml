@@ -128,14 +128,13 @@ plugins:
   exclude:
     glob: []
   # https://github.com/orzih/mkdocs-with-pdf
-  with-pdf:
-    output_path: "pdf/Everest-0.1.0.pdf"
-    cover_title: "Everest Documentation"
-    cover_subtitle: version (Date, Year)
-
-    author: "Everest Team"
-    cover_logo: docs/images/open-everest-logo.png
-    enabled_if_env: ENABLE_PDF_EXPORT
+  # with-pdf: (disabled - use mkdocs-pdf.yml with ENABLE_PDF_EXPORT=1 for PDF builds)
+  #   output_path: "pdf/Everest-0.1.0.pdf"
+  #   cover_title: "Everest Documentation"
+  #   cover_subtitle: version (Date, Year)
+  #   author: "Everest Team"
+  #   cover_logo: docs/images/open-everest-logo.png
+  #   enabled_if_env: ENABLE_PDF_EXPORT
   # Check links - but extends build time significantly
   # https://pypi.org/project/mkdocs-htmlproofer-plugin/
   #    htmlproofer: {}
