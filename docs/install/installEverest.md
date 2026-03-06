@@ -18,7 +18,7 @@ export KUBECONFIG=~/.kube/config
 ## Install OpenEverest
 
 !!! info "Important"
-    Starting from version 1.4.0, `everestctl` now uses the [Helm chart](https://github.com/percona/percona-helm-charts/tree/main/charts/everest){:target="_blank"} to install OpenEverest. To configure chart parameters during installation through `everestctl`, you can:
+    Starting from version 1.4.0, `everestctl` now uses the [Helm chart](https://github.com/openeverest/helm-charts/tree/main/charts/everest){:target="_blank"} to install OpenEverest. To configure chart parameters during installation through `everestctl`, you can:
 
     * Use the `--helm-.set` flag to specify individual parameter values.
     * Provide a values file with the `--helm.values` flag for bulk configuration.
@@ -124,7 +124,7 @@ To install and provision OpenEverest to Kubernetes:
         1. Use the following command to change the Everest service type to `LoadBalancer`:
                     
             ```sh
-            helm upgrade everest-system percona/everest \
+            helm upgrade everest openeverest/openeverest \
             --namespace everest-system \
             --reuse-values \
             --set server.service.type=LoadBalancer
@@ -156,7 +156,7 @@ To install and provision OpenEverest to Kubernetes:
 
                     
             ```sh
-            helm upgrade everest-system percona/everest \
+            helm upgrade everest openeverest/openeverest \
             --namespace everest-system \
             --reuse-values \
             --set server.service.type=NodePort

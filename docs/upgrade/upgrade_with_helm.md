@@ -21,6 +21,51 @@ OpenEverest consistently delivers updates that includes bug fixes, security enha
 kubectl label namespaces everest-system app.kubernetes.io/managed-by-
 ```
 
+## Migrate from the Percona Helm repository
+
+If you originally installed OpenEverest using the `percona` Helm repository, you need to perform a one-time migration to switch your existing releases to the new `openeverest` repository. This does not reinstall OpenEverest — it simply re-associates your existing Helm releases with the new chart source while preserving all your current configuration.
+
+To migrate, run the following commands:
+{.power-number}
+
+1. Add the new OpenEverest Helm repository:
+
+    ```sh
+    helm repo add openeverest https://openeverest.github.io/helm-charts/
+    ```
+
+2. Update your local Helm repository cache:
+
+    ```sh
+    helm repo update
+    ```
+
+3. Upgrade each release to use the chart from the new repository.
+
+    Upgrade the core components release:
+
+    ```sh
+    helm upgrade everest openeverest/openeverest \
+      --namespace everest-system \
+      --reuse-values
+    ```
+
+    If you have one or more database namespace releases, upgrade each one:
+
+    ```sh
+    helm upgrade <RELEASE_NAME> openeverest/everest-db-namespace \
+      --namespace <DB_NAMESPACE> \
+      --reuse-values
+    ```
+
+    Replace `<RELEASE_NAME>` and `<DB_NAMESPACE>` with your actual release name and namespace. To list all your current releases, run `helm list --all-namespaces`.
+
+4. (Optional) Remove the old Percona Helm repository once all releases have been migrated:
+
+    ```sh
+    helm repo remove percona
+    ```
+
 ## Upgrade CRDs
 
 In Helm v3, CRDs are not updated automatically during a Helm upgrade. You need to upgrade the CRDs manually.
@@ -30,7 +75,7 @@ To update the CRDs, run the following command:
 ```sh
 helm repo update
 helm upgrade --install everest-crds \
-    percona/everest-crds \
+    openeverest/everest-crds \
     --namespace everest-system \
     --take-ownership
 ```
@@ -69,7 +114,7 @@ To upgrade OpenEverest using Helm, run the following commands:
 1. Upgrade the Helm release for Everest (core components).
 
     ```sh
-    helm upgrade everest-core percona/everest --namespace everest-system --version "$VERSION"       
+    helm upgrade everest-core openeverest/openeverest --namespace everest-system --version "$VERSION"       
     ```
 
     where,
@@ -79,7 +124,7 @@ To upgrade OpenEverest using Helm, run the following commands:
 2. Upgrade the Helm release for the database namespace (if applicable):
 
     ```sh
-    helm upgrade everest percona/everest-db-namespace --namespace <DB namespace> --version "$VERSION"
+    helm upgrade everest openeverest/everest-db-namespace --namespace <DB namespace> --version "$VERSION"
     ```
 
     where,
