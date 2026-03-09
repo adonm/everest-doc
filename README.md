@@ -32,21 +32,21 @@ If you'd like to have a local copy of OpenEverest documentation, or are thinking
 
 3. Change directory to `everest-doc`.
 
-4. Use our [PMM documentation Docker image] to _build the documentation_:
+4. Start the live-preview server:
 
    ```sh
-   docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md mkdocs build
+   docker compose up
+   ```
+
+   Wait until you see `INFO    -  Start detecting changes` then point your browser to [http://0.0.0.0:8000](http://0.0.0.0:8000). The server watches for file changes and reloads automatically.
+
+   To build the static site instead:
+
+   ```sh
+   docker compose run --rm build
    ```
 
 5. Find the `site` directory, open `index.html` in a browser to view the first page of documentation.
-
-If you want to see how things look as you edit, MkDocs has a built-in server for live previewing. After (or instead of) building, run:
-
-```sh
-docker run --rm -v $(pwd):/docs -p 8000:8000 perconalab/pmm-doc-md mkdocs serve --dev-addr=0.0.0.0:8000
-```
-
-Wait until you see `INFO    -  Start detecting changes` then point your browser to [http://0.0.0.0:8000](http://0.0.0.0:8000).
 
 ### Without Docker
 
@@ -90,7 +90,7 @@ _How to create a PDF version of the documentation._
    - With Docker:
 
      ```sh
-     docker run --rm -v $(pwd):/docs -e ENABLE_PDF_EXPORT=1 perconalab/pmm-doc-md mkdocs build -f mkdocs-pdf.yml
+     docker compose run --rm -e ENABLE_PDF_EXPORT=1 build mkdocs build -f mkdocs-pdf.yml
      ```
 
    - Without:
@@ -187,7 +187,7 @@ write-good docs/**/*.md
 
 We're using the `mkdocs-htmlproofer-plugin` link checking plugin to detect broken URLs. It works well, but increases the build time significantly (by between 10 and 50 times longer).
 
-The plugin is installed in our [Documentation Docker image] and by the GitHub action, but it is commented out in `mkdocs.yml`.
+The plugin is installed as part of `requirements.txt` and by the GitHub action, but it is commented out in `mkdocs.yml`.
 
 To enable it for local builds, uncomment the line with `htmlproofer` in the `plugins` section of `mkdocs.yml` and parse the build output for warnings.
 

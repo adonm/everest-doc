@@ -1,10 +1,9 @@
 Markdown
-mkdocs
+mkdocs>=1.5,<2.0
 mkdocs-macros-plugin
 mkdocs-exclude
 markdown-include
 mkdocs-material
-mkdocs-with-pdf
 mkdocs-git-revision-date-plugin
 typing-extensions
 mkdocs-material-extensions

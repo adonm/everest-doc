@@ -1,0 +1,18 @@
+services:
+  serve:
+    build:
+      context: .
+      dockerfile: tools/Dockerfile.build
+    command: mkdocs serve --dev-addr=0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/docs
+
+  build:
+    build:
+      context: .
+      dockerfile: tools/Dockerfile.build
+    command: mkdocs build
+    volumes:
+      - .:/docs
