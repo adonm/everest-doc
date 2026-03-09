@@ -6,6 +6,23 @@
 You can download the latest version of `everestctl` visiting the latest release page in [this repository](https://github.com/openeverest/openeverest/releases/latest){:target="_blank"}.
 
 
+=== "Homebrew (macOS and Linux)"
+
+    The simplest way to install `everestctl` on macOS or Linux is via Homebrew. This works on both Apple Silicon and Intel CPUs.
+    {.power-number}
+
+    1. Add the OpenEverest tap:
+
+        ```sh
+        brew tap openeverest/tap
+        ```
+
+    2. Install `everestctl`:
+
+        ```sh
+        brew install everestctl
+        ```
+
 === "Linux and WSL"
 
     To install `everestctl` on Linux or WSL, run the following commands:
