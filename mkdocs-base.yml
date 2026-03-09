@@ -73,7 +73,7 @@ extra_javascript:
 
 #Copyright
 copyright: >
-  <a href="https://www.openeverest.io/">OpenEverest</a> © 2026 — <a href="#__consent">Cookie Consent</a>
+  <a href="https://www.openeverest.io/">The OpenEverest Contributors</a> © 2026 — <a href="#__consent">Cookie Consent</a>
 
 #Extensions
 markdown_extensions:
@@ -147,7 +147,6 @@ plugins:
 extra:
   edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
   updated_text: '<i class="uil uil-refresh"></i> Page updated'
-# Common navigation for percona.com, render.com and PDF
 
 nav:
   - Welcome to OpenEverest: index.md
