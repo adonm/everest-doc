@@ -230,6 +230,7 @@ nav:
       - Database view: use/database_view.md
       - Provision a database: use/db_provision.md
       - Manage clusters: use/cluster-management.md
+      - Pause and resume databases: use/pause_resume.md
       - MongoDB sharding: use/mongo_sharding.md
       - Scale database deployment: use/scaling.md
       - Manual storage scaling: use/manual_storage_scaling.md
