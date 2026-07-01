@@ -17,7 +17,7 @@ jobs:
           project-url: https://github.com/orgs/openeverest/projects/2
           
           # The secret name you will create in Step 2
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          github-token: ${{ secrets.PROJECT_TOKEN }}
           
           # Filter for your specific label
           labeled: good first issue
